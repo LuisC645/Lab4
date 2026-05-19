@@ -45,3 +45,14 @@ void Router::showTablaCostos() {
         cout << "Destino: " << it->first << " | Costo: " << it->second << endl;
     }
 }
+
+void Router::eliminarVecino(string vecino) {
+
+    for (int i = 0; i < vecinos.size(); i++) {
+
+        if (vecinos[i].first == vecino) {
+            vecinos.erase(vecinos.begin() + i);
+            break;
+        }
+    }
+}

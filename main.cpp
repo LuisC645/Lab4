@@ -38,5 +38,30 @@ int main() {
 
     red.showTablas();
 
+    cout << "\nEliminar enlace" << endl;
+
+    red.eliminarEnlace("A","B");
+
+    red.recalcularTablas();
+
+    // Mostrar tablas
+    cout << endl;
+    cout << "TABLAS" << endl;
+
+    red.showTablas();
+
+    cout << "\nEliminar router" << endl;
+
+    red.eliminarRouter("A");
+
+    red.recalcularTablas();
+
+    // Mostrar tablas
+    cout << endl;
+    cout << "TABLAS" << endl;
+
+    red.showTablas();
+
+
     return 0;
 }

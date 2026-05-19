@@ -25,6 +25,7 @@ public:
     void agregarCosto(string destino, int costo);
     void showVecinos();
     void showTablaCostos();
+    void eliminarVecino(string vecino);
 
     // Getters
     string getNombre();

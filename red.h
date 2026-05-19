@@ -25,6 +25,8 @@ public:
     void encontrarCamino(string origen, string destino);
     void showTablas();
     void recalcularTablas();
+    void eliminarEnlace(string origen, string destino);
+    void eliminarRouter(string nombre);
 };
 
 #endif

@@ -161,3 +161,40 @@ void Red::showTablas() {
         cout << endl;
     }
 }
+
+void Red::eliminarEnlace(string origen,
+                         string destino) {
+
+    // Existe?
+    if (routers.find(origen) == routers.end() || routers.find(destino) == routers.end()){
+        cout << "Router no encontrado." << endl;
+        return;
+    }
+
+    // Eliminar conexiones
+    routers[origen].eliminarVecino(destino);
+    routers[destino].eliminarVecino(origen);
+
+    // recalcularTablas();
+    cout << "Enlace eliminado." << endl;
+}
+
+void Red::eliminarRouter(string nombre) {
+
+    // Existe?
+    if (routers.find(nombre) == routers.end()) {
+        cout << "Router no existe." << endl;
+        return;
+    }
+
+    // Eliminar referencias en vecinos
+    for (map<string, Router>::iterator it = routers.begin(); it != routers.end(); it++){
+        it->second.eliminarVecino(nombre);
+    }
+
+    // Eliminar router del map
+    routers.erase(nombre);
+    //recalcularTablas();
+
+    cout << "Router eliminado." << endl;
+}
