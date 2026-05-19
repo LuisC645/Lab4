@@ -23,6 +23,8 @@ public:
     void conectarRouters(string origen, string destino, int costo);
     void showRed();
     void encontrarCamino(string origen, string destino);
+    void showTablas();
+    void recalcularTablas();
 };
 
 #endif

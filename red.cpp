@@ -101,6 +101,10 @@ void Red::encontrarCamino(string origen, string destino){
         }
     }
 
+    for (map<string,int>::iterator it = distancias.begin(); it != distancias.end(); it++){
+        routers[origen].agregarCosto(it->first, it->second);
+    }
+
     if (distancias[destino] == numeric_limits<int>::max()) {
         cout << "No existe camino entre " << origen << " y " << destino << endl;
         return;
@@ -130,4 +134,30 @@ void Red::encontrarCamino(string origen, string destino){
 
     cout << endl;
     cout << "Costo total: " << distancias[destino] << endl;
+}
+
+void Red::recalcularTablas() {
+
+    for (map<string, Router>::iterator it1 = routers.begin(); it1 != routers.end(); it1++){
+
+        string origen = it1->first;
+
+        for (map<string, Router>::iterator it2 = routers.begin(); it2 != routers.end(); it2++){
+
+            string destino = it2->first;
+
+            // Evitar calcular hacia si mismo
+            if (origen != destino) {
+                encontrarCamino(origen, destino);
+            }
+        }
+    }
+}
+
+void Red::showTablas() {
+
+    for (map<string, Router>::iterator it = routers.begin(); it != routers.end(); it++){
+        it->second.showTablaCostos();
+        cout << endl;
+    }
 }

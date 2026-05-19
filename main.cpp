@@ -1,4 +1,4 @@
-#include "red.h"
+#include "Red.h"
 
 int main() {
 
@@ -10,7 +10,7 @@ int main() {
     red.agregarRouter("C");
     red.agregarRouter("D");
 
-    // Conectar routers
+    // Conexiones
     red.conectarRouters("A", "B", 4);
     red.conectarRouters("A", "D", 5);
     red.conectarRouters("A", "C", 10);
@@ -20,9 +20,23 @@ int main() {
 
     red.conectarRouters("D", "C", 2);
 
+    // Topologia
+    cout << "RED" << endl;
+
     red.showRed();
 
-    red.encontrarCamino("A", "C");
+    // Calcular caminos
+    // red.encontrarCamino("A", "C");
+    // red.encontrarCamino("B", "D");
+    // red.encontrarCamino("D", "A");
+
+    red.recalcularTablas();
+
+    // Mostrar tablas
+    cout << endl;
+    cout << "TABLAS" << endl;
+
+    red.showTablas();
 
     return 0;
 }
