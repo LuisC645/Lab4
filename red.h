@@ -3,7 +3,11 @@
 
 #include <iostream>
 #include <map>
-#include "router.h"
+#include <queue>
+#include <set>
+#include <limits>
+
+#include "Router.h"
 
 using namespace std;
 
@@ -15,9 +19,10 @@ private:
 
 public:
 
-    void addRouter(string nombre);
+    void agregarRouter(string nombre);
     void conectarRouters(string origen, string destino, int costo);
     void showRed();
+    void encontrarCamino(string origen, string destino);
 };
 
 #endif

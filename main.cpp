@@ -5,10 +5,10 @@ int main() {
     Red red;
 
     // Agregar routers
-    red.addRouter("A");
-    red.addRouter("B");
-    red.addRouter("C");
-    red.addRouter("D");
+    red.agregarRouter("A");
+    red.agregarRouter("B");
+    red.agregarRouter("C");
+    red.agregarRouter("D");
 
     // Conectar routers
     red.conectarRouters("A", "B", 4);
@@ -21,6 +21,8 @@ int main() {
     red.conectarRouters("D", "C", 2);
 
     red.showRed();
+
+    red.encontrarCamino("A", "C");
 
     return 0;
 }
