@@ -26,6 +26,7 @@ public:
     void showVecinos();
     void showTablaCostos();
     void eliminarVecino(string vecino);
+    void limpiarTabla();
 
     // Getters
     string getNombre();

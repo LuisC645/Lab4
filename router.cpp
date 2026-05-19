@@ -56,3 +56,8 @@ void Router::eliminarVecino(string vecino) {
         }
     }
 }
+
+void Router::limpiarTabla() {
+
+    tablaCostos.clear();
+}

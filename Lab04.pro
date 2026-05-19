@@ -9,7 +9,8 @@ CONFIG += c++17 cmdline
 SOURCES += \
         main.cpp \
         red.cpp \
-        router.cpp
+        router.cpp \
+        utils.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -18,4 +19,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     red.h \
-    router.h
+    router.h \
+    utils.h

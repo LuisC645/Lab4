@@ -1,24 +1,13 @@
 #include "Red.h"
+#include "utils.h"
 
 int main() {
 
     Red red;
 
-    // Agregar routers
-    red.agregarRouter("A");
-    red.agregarRouter("B");
-    red.agregarRouter("C");
-    red.agregarRouter("D");
+    cargarRed("data/red.txt", red);
 
-    // Conexiones
-    red.conectarRouters("A", "B", 4);
-    red.conectarRouters("A", "D", 5);
-    red.conectarRouters("A", "C", 10);
-
-    red.conectarRouters("B", "C", 3);
-    red.conectarRouters("B", "D", 1);
-
-    red.conectarRouters("D", "C", 2);
+    red.showRed();
 
     // Topologia
     cout << "RED" << endl;

@@ -2,7 +2,10 @@
 
 void Red::agregarRouter(string nombre) {
 
-    routers.insert({nombre, Router(nombre)});
+    // Existe?
+    if (routers.find(nombre) == routers.end()) {
+        routers.insert({nombre, Router(nombre)});
+    }
 }
 
 void Red::conectarRouters(string origen, string destino, int costo){
@@ -137,6 +140,10 @@ void Red::encontrarCamino(string origen, string destino){
 }
 
 void Red::recalcularTablas() {
+
+    for (map<string, Router>::iterator it = routers.begin(); it != routers.end();  it++){
+        it->second.limpiarTabla();
+    }
 
     for (map<string, Router>::iterator it1 = routers.begin(); it1 != routers.end(); it1++){
 
