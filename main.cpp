@@ -7,50 +7,134 @@ int main() {
 
     cargarRed("data/red.txt", red);
 
-    red.showRed();
+    int opcion = 0;
 
-    // Topologia
-    cout << "RED" << endl;
+    while(opcion != 9) {
 
-    red.showRed();
+        cout << endl;
+        cout << "========== MENU ==========" << endl;
 
-    // Calcular caminos
-    // red.encontrarCamino("A", "C");
-    // red.encontrarCamino("B", "D");
-    // red.encontrarCamino("D", "A");
+        cout << "1. Mostrar red" << endl;
+        cout << "2. Mostrar tablas" << endl;
+        cout << "3. Agregar router" << endl;
+        cout << "4. Conectar routers" << endl;
+        cout << "5. Eliminar router" << endl;
+        cout << "6. Eliminar enlace" << endl;
+        cout << "7. Encontrar camino" << endl;
+        cout << "8. Recalcular tablas" << endl;
+        cout << "9. Salir" << endl;
 
-    red.recalcularTablas();
+        cout << endl;
+        cout << "Opcion: ";
+        cin >> opcion;
 
-    // Mostrar tablas
-    cout << endl;
-    cout << "TABLAS" << endl;
+        cout << endl;
 
-    red.showTablas();
+        switch(opcion) {
 
-    cout << "\nEliminar enlace" << endl;
+        case 1: {
+            cout << "===== RED =====" << endl;
+            red.showRed();
+            break;
+        }
 
-    red.eliminarEnlace("A","B");
+        case 2: {
+            cout << "===== TABLAS =====" << endl;
+            red.showTablas();
+            break;
+        }
 
-    red.recalcularTablas();
+        case 3: {
+            string nombre;
 
-    // Mostrar tablas
-    cout << endl;
-    cout << "TABLAS" << endl;
+            cout << "Nombre del router: ";
+            cin >> nombre;
+            red.agregarRouter(nombre);
+            cout << "Router agregado." << endl;
+            break;
+        }
 
-    red.showTablas();
+        case 4: {
 
-    cout << "\nEliminar router" << endl;
+            string origen;
+            string destino;
+            int costo;
 
-    red.eliminarRouter("A");
+            cout << "Origen: ";
+            cin >> origen;
 
-    red.recalcularTablas();
+            cout << "Destino: ";
+            cin >> destino;
 
-    // Mostrar tablas
-    cout << endl;
-    cout << "TABLAS" << endl;
+            cout << "Costo: ";
+            cin >> costo;
 
-    red.showTablas();
+            red.conectarRouters(origen, destino, costo);
+            red.recalcularTablas();
 
+            cout << "Conexion agregada." << endl;
+            break;
+        }
+
+        case 5: {
+
+            string nombre;
+
+            cout << "Router a eliminar: ";
+            cin >> nombre;
+
+            red.eliminarRouter(nombre);
+            break;
+        }
+
+        case 6: {
+
+            string origen;
+            string destino;
+
+            cout << "Origen: ";
+            cin >> origen;
+
+            cout << "Destino: ";
+            cin >> destino;
+
+            red.eliminarEnlace(origen, destino);
+            break;
+        }
+
+        case 7: {
+
+            string origen;
+            string destino;
+
+            cout << "Origen: ";
+            cin >> origen;
+
+            cout << "Destino: ";
+            cin >> destino;
+
+            red.encontrarCamino(origen, destino);
+            break;
+        }
+
+        case 8: {
+
+            red.recalcularTablas();
+
+            cout << "Tablas recalculadas." << endl;
+            break;
+        }
+
+        case 9: {
+
+            cout << "Terminado gracias a lucho" << endl;
+            break;
+        }
+
+        default:
+            cout << "Opcion invalida." << endl;
+        }
+    }
 
     return 0;
 }
